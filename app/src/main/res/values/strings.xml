@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Lansia Sehat &amp; Aktif</string>
+    <string name="default_web_client_id">1041552422412-02ju9pb5hbejghg74d5ad95phhlg92ep.apps.googleusercontent.com</string>
+    <string name="map">Map Puskesmas</string>
+    <string name="profile">Profile</string>
 </resources>

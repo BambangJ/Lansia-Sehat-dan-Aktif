@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -9,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.bams.lansiasehataktif"
-        minSdk = 22
+        minSdk = 23
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -36,13 +37,26 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
-    implementation ("com.google.android.gms:play-services-maps:19.0.0")
+    implementation (libs.retrofit)
+    implementation (libs.firebase.config)
+    implementation (libs.firebase.database.ktx)
+    implementation (libs.logging.interceptor)
+    implementation (libs.glide)
+    implementation (libs.graphview)
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.2")
+    implementation (libs.picasso)
+    implementation (libs.play.services.auth)
+    implementation (libs.firebase.auth.ktx)
+    implementation (libs.converter.gson)
+    implementation (platform(libs.firebase.bom))
+    implementation (libs.firebase.analytics)
+    implementation (libs.play.services.maps)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.crashlytics.buildtools)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

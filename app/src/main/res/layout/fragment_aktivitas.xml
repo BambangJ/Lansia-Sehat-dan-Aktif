@@ -6,24 +6,25 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <com.google.android.material.chip.ChipGroup
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:singleSelection="true">
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp">
 
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Filter"
+        <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/semua" />
-
-    </com.google.android.material.chip.ChipGroup>
+            android:padding="16dp"
+            android:text="Rekomendasi Aktivitas Lansia"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_activities"
+        android:id="@+id/recyclerViewAktivitas"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp" />
-
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"/>
 </LinearLayout>

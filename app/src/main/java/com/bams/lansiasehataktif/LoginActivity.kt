@@ -1,6 +1,5 @@
 package com.bams.lansiasehataktif
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,39 +7,44 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val etEmail: EditText = findViewById(R.id.etEmail)
-        val etPassword: EditText = findViewById(R.id.etPassword)
-        val btnLogin: Button = findViewById(R.id.btnLogin)
-        val tvSignUp: TextView = findViewById(R.id.tvSignUp)
+        auth = FirebaseAuth.getInstance()
 
-        val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val emailEditText = findViewById<EditText>(R.id.etEmail)
+        val passwordEditText = findViewById<EditText>(R.id.etPassword)
+        val loginButton = findViewById<Button>(R.id.btnLogin)
+        val registerTextView = findViewById<TextView>(R.id.tvRegister)
 
-        btnLogin.setOnClickListener {
-            val email = etEmail.text.toString()
-            val password = etPassword.text.toString()
+        loginButton.setOnClickListener {
+            val email = emailEditText.text.toString()
+            val password = passwordEditText.text.toString()
 
-            val storedPassword = sharedPreferences.getString(email, null)
-
-            if (storedPassword == password) {
-                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            startActivity(Intent(this, MainActivity::class.java))
+                            finish()
+                        } else {
+                            Toast.makeText(this, "Login failed.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
             } else {
-                Toast.makeText(this, "Invalid Email or Password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill all fields.", Toast.LENGTH_SHORT).show()
             }
         }
 
-        tvSignUp.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+        registerTextView.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 }

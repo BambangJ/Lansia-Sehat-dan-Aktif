@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.bams.lansiasehataktif" />
+                  <option name="mobileSdkAppId" value="1:1041552422412:android:54fe5de201d98c1d7c6029" />
+                  <option name="projectId" value="lansia-sehat-aktif" />
+                  <option name="projectNumber" value="1041552422412" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
