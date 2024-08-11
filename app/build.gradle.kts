@@ -37,16 +37,20 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
     implementation (libs.retrofit)
     implementation (libs.firebase.config)
     implementation (libs.firebase.database.ktx)
     implementation (libs.logging.interceptor)
     implementation (libs.glide)
     implementation (libs.graphview)
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.2")
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.room.ktx)
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
     implementation (libs.picasso)
     implementation (libs.play.services.auth)
     implementation (libs.firebase.auth.ktx)

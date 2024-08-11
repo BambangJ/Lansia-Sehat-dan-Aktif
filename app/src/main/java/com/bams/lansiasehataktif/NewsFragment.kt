@@ -27,7 +27,7 @@ class NewsFragment<T> : Fragment() {
     private lateinit var recyclerViewNews: RecyclerView
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var remoteConfig: FirebaseRemoteConfig
-    private lateinit var graph: GraphView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +44,6 @@ class NewsFragment<T> : Fragment() {
         recyclerViewNews = view.findViewById(R.id.recyclerViewNews)
         recyclerViewNews.layoutManager = LinearLayoutManager(context)
 
-        graph = view.findViewById(R.id.graph)
 
         // Setup Firebase Remote Config
         remoteConfig = FirebaseRemoteConfig.getInstance()
@@ -59,7 +58,6 @@ class NewsFragment<T> : Fragment() {
                 if (task.isSuccessful) {
                     Log.d("NewsFragment", "Remote Config fetch succeeded")
                     fetchNews()
-                    fetchLansiaData()
                 } else {
                     Log.e("NewsFragment", "Remote Config fetch failed")
                 }
@@ -99,45 +97,6 @@ class NewsFragment<T> : Fragment() {
 
             override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                 Log.e("NewsFragment", "Failed to fetch news", t)
-            }
-        })
-    }
-
-    private fun fetchLansiaData() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://data.jabarprov.go.id/api-backend/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val apiService = retrofit.create(ApiService::class.java)
-
-        apiService.getLansiaData().enqueue(object : Callback<List<LansiaData>> {
-            override fun onResponse(call: Call<List<LansiaData>>, response: Response<List<LansiaData>>) {
-                if (response.isSuccessful) {
-                    val lansiaData = response.body()
-
-                    // Convert the data to DataPoint array
-                    val dataPoints = lansiaData?.mapIndexed { index, data ->
-                        DataPoint(index.toDouble(), data.jumlah_lansia.toDouble())
-                    }?.toTypedArray()
-
-                    // Update the GraphView with the data
-                    val series = BarGraphSeries(dataPoints)
-                    graph.addSeries(series)
-
-                    // Customize the graph
-                    series.spacing = 10
-                    series.isDrawValuesOnTop = true
-                    series.valuesOnTopColor = Color.RED
-
-                    graph.title = "Jumlah Lansia 2019"
-                    graph.gridLabelRenderer.horizontalAxisTitle = "Desa/Kelurahan"
-                    graph.gridLabelRenderer.verticalAxisTitle = "Jumlah Lansia"
-                }
-            }
-
-            override fun onFailure(call: Call<List<LansiaData>>, t: Throwable) {
-                Log.e("NewsFragment", "Failed to fetch lansia data", t)
             }
         })
     }

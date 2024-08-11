@@ -64,6 +64,12 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     true
                 }
+                R.id.nav_reminder -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, ReminderFragment())
+                        .commit()
+                    true
+                }
                 else -> false
             }
         }

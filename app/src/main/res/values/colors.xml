@@ -8,7 +8,10 @@
     <color name="linkColor">#1E88E5</color>
     <color name="white">#FFFFFF</color>
     <color name="colorPrimary">#B43F3F</color>
+    <color name="primarycolor">#B43F3F</color>
     <color name="colorPrimaryDark">#173B45</color>
     <color name="colorAccent">#FF8225</color>
+    <color name="black">#000000</color>
+    <color name="gray">#888888</color>
     <color name="backgroundLight">#F8EDED</color>
 </resources>

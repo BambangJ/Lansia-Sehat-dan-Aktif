@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1041552422412",
+    "firebase_url": "https://lansia-sehat-aktif-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "lansia-sehat-aktif",
+    "storage_bucket": "lansia-sehat-aktif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041552422412:android:54fe5de201d98c1d7c6029",
+        "android_client_info": {
+          "package_name": "com.bams.lansiasehataktif"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041552422412-m5palghfqoijuskol11m1ahmqtpvn16s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bams.lansiasehataktif",
+            "certificate_hash": "818535df1d80e25ae32bc705174aeb18767a731e"
+          }
+        },
+        {
+          "client_id": "1041552422412-02ju9pb5hbejghg74d5ad95phhlg92ep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrlyps9npGvsoWCj_zjzs_NzQpD7abZvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041552422412-02ju9pb5hbejghg74d5ad95phhlg92ep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
