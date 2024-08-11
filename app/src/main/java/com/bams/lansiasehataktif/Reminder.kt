@@ -1,13 +1,14 @@
 package com.bams.lansiasehataktif
 
 import com.google.firebase.Timestamp
+import java.util.Date
 
 data class Reminder(
-    var id: String = "",
-    val title: String = "",
-    val description: String = "",
-    val time: Timestamp = Timestamp.now(),
-    val userId: String = ""
+    var id: String? = null,
+    var userId: String? = null,
+    var title: String = "",
+    var description: String = "",
+    var time: Timestamp = Timestamp(Date())
 )
 
 

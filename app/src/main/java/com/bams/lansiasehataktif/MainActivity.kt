@@ -1,35 +1,12 @@
 package com.bams.lansiasehataktif
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.view.View
+import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import com.google.android.gms.maps.MapsInitializer
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.GeoPoint
-import com.squareup.picasso.Picasso
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -70,9 +47,34 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     true
                 }
+                R.id.nav_profile -> {
+                    showProfileMenu()
+                    true
+                }
                 else -> false
             }
         }
     }
-}
 
+    private fun showProfileMenu() {
+        val popupMenu = PopupMenu(this, findViewById<View>(R.id.nav_profile))
+        popupMenu.menuInflater.inflate(R.menu.profile_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.action_logout -> {
+                    logout()
+                    true
+                }
+                else -> false
+            }
+        }
+        popupMenu.show()
+    }
+
+    private fun logout() {
+        // Implementasi logout sesuai dengan kebutuhan aplikasi Anda
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+}

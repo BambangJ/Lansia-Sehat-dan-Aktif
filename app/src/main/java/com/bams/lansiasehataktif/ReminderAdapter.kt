@@ -10,7 +10,7 @@ import com.google.firebase.Timestamp
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class ReminderAdapter(private val reminders: List<Reminder>) :
+class ReminderAdapter(private var reminders: List<Reminder>) :
     RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReminderViewHolder {
@@ -24,6 +24,11 @@ class ReminderAdapter(private val reminders: List<Reminder>) :
     }
 
     override fun getItemCount() = reminders.size
+
+    fun updateReminders(newReminders: List<Reminder>) {
+        reminders = newReminders
+        notifyDataSetChanged() // Notify the adapter that data has changed
+    }
 
     inner class ReminderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.tvTitle)
@@ -42,3 +47,4 @@ class ReminderAdapter(private val reminders: List<Reminder>) :
         }
     }
 }
+
