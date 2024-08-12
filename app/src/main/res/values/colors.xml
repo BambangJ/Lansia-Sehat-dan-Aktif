@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="backgroundColor">#F5F5F5</color>
+    <color name="titleColor">#3E3E3E</color>
+    <color name="editTextBorderColor">#CCCCCC</color>
+    <color name="buttonColor">#4CAF50</color>
+    <color name="buttonPressedColor">#388E3C</color>
+    <color name="linkColor">#1E88E5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="colorPrimary">#B43F3F</color>
+    <color name="primarycolor">#B43F3F</color>
+    <color name="colorPrimaryDark">#173B45</color>
+    <color name="colorAccent">#FF8225</color>
+    <color name="black">#000000</color>
+    <color name="gray">#888888</color>
+    <color name="backgroundLight">#F8EDED</color>
 </resources>
