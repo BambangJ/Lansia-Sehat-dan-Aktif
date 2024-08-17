@@ -1,63 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MapFragment">
 
-    <!-- Title for the map -->
-
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        app:cardCornerRadius="8dp">
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Peta Fasilitas Kesehatan"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-    <!-- CardView for the map -->
-    <androidx.cardview.widget.CardView
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:visibility="gone"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginBottom="16dp"
-        app:cardCornerRadius="12dp">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <FrameLayout
-            android:id="@+id/map_container"
+        <!-- Add your map view here -->
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </androidx.cardview.widget.CardView>
 
-    <!-- Title for the list of places -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        app:cardCornerRadius="8dp">
+        <!-- RecyclerView for Places -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="?android:attr/windowBackground"
+            android:elevation="8dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="80dp" />
 
-        <TextView
+        <!-- Expandable Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/expandable_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Daftar Puskesmas"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
+            android:text="Show Places"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="16dp"
+            app:icon="@drawable/ic_expand_more"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"/>
+    </FrameLayout>
 
-    <!-- List of Puskesmas locations -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/place_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
-
-</LinearLayout>
-
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

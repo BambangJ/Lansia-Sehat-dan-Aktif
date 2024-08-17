@@ -3,4 +3,10 @@
     <string name="default_web_client_id">1041552422412-02ju9pb5hbejghg74d5ad95phhlg92ep.apps.googleusercontent.com</string>
     <string name="map">Map Puskesmas</string>
     <string name="profile">Profile</string>
+    <string name="pengingat_jadwal">Pengingat Jadwal</string>
+    <string name="berita_terkini">Berita Terkini</string>
+    <string name="daftar_aktivitas">Daftar Aktivitas</string>
+    <string name="v_1_0_6">v.1.0.6</string>
+    <string name="logout">Logout</string>
+    <string name="news_title">News Title</string>
 </resources>

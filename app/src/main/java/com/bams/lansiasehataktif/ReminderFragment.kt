@@ -53,7 +53,7 @@ class ReminderFragment : Fragment() {
         reminderViewModel.reminders.observe(viewLifecycleOwner, { reminders ->
             Log.d("ReminderFragment", "Received reminders: $reminders") // Debug log
             reminderAdapter.updateReminders(reminders)
-            swipeRefreshLayout.isRefreshing = false // Stop refresh animation
+            swipeRefreshLayout.isRefreshing = false
         })
 
         // Listener untuk FloatingActionButton

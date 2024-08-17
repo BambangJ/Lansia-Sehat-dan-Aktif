@@ -66,7 +66,7 @@ class NewsFragment<T> : Fragment() {
 
     private fun fetchNews() {
         val apiKey = remoteConfig.getString("news_api_key")
-        val language = "id" // Filter news by Indonesian language
+        val language = "id"
 
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
